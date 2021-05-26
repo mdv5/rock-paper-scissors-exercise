@@ -12,7 +12,7 @@ print("Player chose: ", player_choice)
 
 # validate user input
 if (player_choice == "rock") or (player_choice == "paper") or (player_choice == "scissors"):
-    print("VALID. KEEP GOING")
+    print("Choice received successfully.")
 else:
     print("OOPS, invalid input. Please try again.")
     exit()
@@ -24,4 +24,30 @@ computer_choice = random.choice(valid_choices)
 
 print("Computer chose: ", computer_choice)
 
-print("THIS IS THE END OF THE GAME. PLEASE PLAY AGAIN.")
+winner = "" #set the winner to empty before evaluating the winner
+
+#evaluate the winner
+if (player_choice == "rock"):
+    if (computer_choice == "scissors"):
+        winner = 'the player'
+    elif (computer_choice == "paper"):
+        winner = 'the computer'
+elif (player_choice == "scissors"):
+    if (computer_choice == "paper"):
+        winner = 'the player'
+    elif (computer_choice == "rock"):
+        winner = 'the computer'
+elif (player_choice == "paper"):
+    if (computer_choice == "scissors"):
+        winner = 'the computer'
+    elif (computer_choice == "rock"):
+        winner = 'the player'
+
+# if there is a winner say who won, otherwise declare a tie
+if winner:
+    print('The winner is', winner)
+    print("THIS IS THE END OF THE GAME. PLEASE PLAY AGAIN.")
+else:
+    print("The game is a tie! Please Play again.")
+
+
